@@ -1,5 +1,6 @@
 class UsersController<ApplicationController
 
+
 def new
   @user = User.new
 end
@@ -10,9 +11,14 @@ def create
     flash[:notice] = "COMPLETE"
     redirect_to root_path
   else
-    render :new, notice: "YOU DIDN'T THUNDER STRIKE"
+    flash[:notice] = "THUNDER STRIKE FAILURE!"
+    render :new
   end
 end
+
+  def show
+    @user = User.find(params[:id])
+  end
 
 
   private
