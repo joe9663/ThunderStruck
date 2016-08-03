@@ -1,15 +1,15 @@
 class GamesController < ApplicationController
-  def new
-  end
+
 
   def create
-    user = User.find(params[:id])
+    user = User.find(session[:id])
     game = Game.create
     generate_ships(user.id, game.id)
-
-
   end
 
+  def show
+
+  end
 
   def generate_ships(user_id, game_id)
     BonnScott.create(name: "The Dread Bonn Scott", hp: 6, user_id: user_id, game_id: game_id, position: "A2-A3-A4-A5-A6-A7")
