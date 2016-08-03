@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  x-coord-: 1
+  y-coord: 1
+  ship_id: 1
+  hit_value: false
+  gameboard_id: 1
+
+two:
+  x-coord-: 1
+  y-coord: 1
+  ship_id: 1
+  hit_value: false
+  gameboard_id: 1
