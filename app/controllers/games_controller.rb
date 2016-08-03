@@ -1,5 +1,13 @@
 class GamesController < ApplicationController
 
+  def index
+  end
+
+  def new
+  end
+
+  def edit
+  end
 
   def create
     user = User.find(session[:id])
