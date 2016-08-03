@@ -5,7 +5,8 @@
   <% end %>
 
 <% if logged_in? -%>Welcome, <%= current_user.name %><br>
-  <%= link_to "Create Game!", new_game_path%>
+    <%= link_to "Create Game!", new_game_path%>
+    <%= link_to "Logout", new_session_path, method: :delete %>
 <% else %>
 
 <%= link_to "Login!", new_session_path%>
