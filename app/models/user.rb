@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  has_many :gameboards
+  has_many :ships
+  has_many :shots
+  has_many :games
 
   has_secure_password
 

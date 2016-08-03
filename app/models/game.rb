@@ -1,5 +1,7 @@
 class Game < ApplicationRecord
-  has_many :gameboards
+  has_many :users
+  has_many :shots
+  has_many :ships
 
 
 end
