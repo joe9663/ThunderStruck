@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
-  has_many :game_users
-  has_many :users, through: :game_users
+  belongs_to :player_1, class_name: "User"
+  belongs_to :player_2, class_name: "User", optional: true
   has_many :shots
   has_many :ships
   has_many :destroyers

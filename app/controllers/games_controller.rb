@@ -11,7 +11,7 @@ class GamesController < ApplicationController
 
   def create
     user = current_user
-    game = Game.create
+    game = Game.new
     generate_ships(user.id, game.id)
     render :show
   end
