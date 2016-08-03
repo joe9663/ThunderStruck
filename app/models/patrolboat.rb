@@ -1,2 +1,2 @@
-class PatrolBoat < Ship
+class Patrolboat < Ship
 end
