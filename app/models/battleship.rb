@@ -1,2 +1,3 @@
 class Battleship < Ship
+
 end
