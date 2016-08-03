@@ -1,0 +1,18 @@
+<h1>WELCOME TO THE BATTLE SHIP!</h1>
+
+ <% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
+
+<% if logged_in? -%>Welcome, <%= current_user.name %><br>
+  <%= link_to "Create Game!", new_game_path%>
+<% else %>
+
+<%= link_to "Login!", new_session_path%>
+<br>
+or
+<br>
+<%= link_to "Register!", new_user_path%>
+<br>
+<% end %>
+
