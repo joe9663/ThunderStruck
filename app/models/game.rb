@@ -5,8 +5,8 @@ class Game < ApplicationRecord
   has_many :ships
   has_many :destroyers
   has_many :bonnscotts
-  has_many :batteships
+  has_many :crystalships
   has_many :cruisers
-  has_many :patrol_boats
+  has_many :patrolboats
 
 end
