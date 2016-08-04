@@ -1,3 +1,7 @@
+<div class="text-container"><h1><%=@turn%></h1></div>
+<br>
+<br>
+
 <h1>Opponent Board</h1>
 <div class="opponent board">
   <div class="row" id="0">
@@ -248,8 +252,8 @@
 
 
 <%= form_for @shot, url: games_shot_path, html: {class: "nifty_form"} do |f| %>
-  X Coordinate: <%= f.text_field :x_cord %>
-  Y Coordinate: <%= f.text_field :y_cord %>
+  X Coordinate: <%= f.select :x_cord, ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J'] %>
+  Y Coordinate: <%= f.select :y_cord, ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] %>
   <%= f.submit "Fire!" %>
 <% end %>
 
