@@ -33,12 +33,19 @@ class GamesController < ApplicationController
   end
 
   def show
+    player_2_join
     @turn = turn
     @shot = Shot.new
-    @player_1_shots = calculate_player_1_shots
+    # if Shot.last.hit?
+    #   @shot_status = "THUNDERSTRUCK!!!!"
+    # else
+    #   @shot_status = "YOU MISSED!!!!"
+    # end
 
+    @player_1_shots = calculate_player_1_shots
     unless current_game.player_2.nil?
       @player_2_shots = calculate_player_2_shots
+
     else
       @player_2_shots = 0
     end
@@ -80,5 +87,15 @@ private
     shots_positions = shots.map {|shot| shot.position}
     shots_positions.join("-")
   end
+
+
+  def player_2_join
+    if current_user != current_game.player_1 && current_game.player_2 == nil
+      current_game.player_2 = current_user
+      session[:player] = 2
+    end
+  end
+
+
 end
 
