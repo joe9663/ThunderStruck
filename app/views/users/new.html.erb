@@ -1,4 +1,5 @@
- <% if flash[:notice] %>
+ <div class="text-container">
+<% if flash[:notice] %>
     <p class="flash-notice"><%= flash[:notice] %></p>
   <% end %>
 
@@ -17,3 +18,4 @@
     <%= f.submit%>
   </div>
 <% end %>
+</div>

@@ -24,6 +24,7 @@ class GamesController < ApplicationController
     if @game.save
       generate_ships(user.id, @game.id)
       session[:game_id] = @game.id
+      session[:player] = 1
       redirect_to @game
     else
       flash[:notice] = "Could Not Create Game, For Some Weird Ass Reason"
@@ -32,9 +33,16 @@ class GamesController < ApplicationController
   end
 
   def show
-    @turn = turn
-    @shot = Shot.new
+    if session[:player] == 1
+      @shot = Shot.new
+      @player = 1
+    else
+      @player = 2
+      @shot = Shot.new
+    end
   end
+
+private
 
   def generate_ships(user_id, game_id)
     Bonnscott.create(name: "The Dread Bonn Scott", hp: 6, user_id: user_id, game_id: game_id, position: "A2-A3-A4-A5-A6-A7")
@@ -44,6 +52,7 @@ class GamesController < ApplicationController
     Patrolboat.create(name: "Patrol Boat", hp: 2, user_id: user_id, game_id: game_id, position: "I9-J9")
   end
 
+
   def turn
     if Shot.all.count.even?
       return "Player 1's Turn"
@@ -51,5 +60,5 @@ class GamesController < ApplicationController
       return "Player 2's Turn"
     end
   end
-
 end
+

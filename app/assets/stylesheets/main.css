@@ -31,10 +31,13 @@ h1 {
 }
 
 .ship {
+
+}
+
+.show_ship {
   background-image: url(/assets/ship_background.gif);
   color: white;
 }
-
 
 .row {
   display: flex;
@@ -55,3 +58,40 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
+.text-container {
+  width: 50%;
+  background-color: cornflowerblue;
+  border-radius: 15px;
+  margin: 20px auto;
+  padding: 15px;
+}
+
+.block {
+  display: block;
+}
+a {
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1.5em;
+  margin: 10px auto 0px auto;
+}
+
+label {
+  display: block;
+  padding: 5px;
+}
+
+input[type=submit] {
+  margin: 10px auto;
+  font-size: 1em;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
