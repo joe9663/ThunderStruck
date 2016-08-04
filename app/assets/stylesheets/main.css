@@ -31,10 +31,13 @@ h1 {
 }
 
 .ship {
+
+}
+
+.show_ship {
   background-image: url(/assets/ship_background.gif);
   color: white;
 }
-
 
 .row {
   display: flex;
@@ -86,7 +89,9 @@ input[type=submit] {
   font-size: 1em;
 }
 
-
+.hidden {
+  display: none;
+}
 
 
 
