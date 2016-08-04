@@ -1,3 +1,3 @@
-class BonnScott < Ship
+class Bonnscott < Ship
 
 end

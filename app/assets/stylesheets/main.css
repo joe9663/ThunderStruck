@@ -1,6 +1,8 @@
 body {
-  background: darkblue;
+  background-image: url(/assets/lightning_background.jpg);
   text-align: center;
+  font-family: helvetica;
+  height: 100vh;
 }
 
 
@@ -10,17 +12,27 @@ h1 {
 
 
 .board {
+  background: darkblue;
   margin: 10px auto;
   width: 50%;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .column {
-  background: white;
-  border: solid 1px darkblue;
+  border: solid 3px cornflowerblue;
   width: 100%;
   margin: 5px;
   display: flex;
   flex-wrap: wrap;
+  padding: 5px;
+  border-radius: 4px;
+  background-image: url(/assets/water_background.jpg);
+}
+
+.ship {
+  background-image: url(/assets/ship_background.gif);
+  color: white;
 }
 
 
@@ -29,3 +41,17 @@ h1 {
   height: 50px;
 }
 
+.miss {
+   background-image: url(/assets/splash_background.jpg);
+}
+
+.hit {
+  background-image: url(/assets/fire_background.jpg);
+
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

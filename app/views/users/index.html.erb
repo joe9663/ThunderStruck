@@ -5,7 +5,9 @@
   <% end %>
 
 <% if logged_in? -%>Welcome, <%= current_user.name %><br>
-    <%= link_to "Create Game!", new_game_path%>
+  <%= form_for :game, url: '/games' do |f| %>
+    <%=f.submit "Create New Game"%>
+  <%end%>
     <%= link_to "Logout", new_session_path, method: :delete %>
 <% else %>
 
