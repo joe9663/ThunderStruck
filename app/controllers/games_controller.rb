@@ -92,6 +92,7 @@ private
   def player_2_join
     if current_user != current_game.player_1 && current_game.player_2 == nil
       current_game.player_2 = current_user
+      current_game.save
       session[:player] = 2
     end
   end

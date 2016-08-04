@@ -23,7 +23,9 @@
       var x_cord = player_2_shots[i][0];
       var y_cord = player_2_shots[i][1];
       $(".player_1").find("#" + y_cord).find("#" + x_cord).addClass("shot");
-    }
+    };
 
-
+    var turn = $("#turn").html()[7];
+    if (turn == player) { $(".shot-form").show()}
+    else { $(".shot-form").hide()};
   });
