@@ -11,10 +11,11 @@ class GamesController < ApplicationController
 
   def create
     user = current_user
-    game = Game.new(player_1_id: current_user.id)
-    if game.save
-      generate_ships(user.id, game.id)
-      render :show
+    @game = Game.new(player_1_id: current_user.id)
+    if @game.save
+      generate_ships(user.id, @game.id)
+      
+      redirect_to @game
     else
       flash[:notice] = "Could Not Create Game, For Some Weird Ass Reason"
       redirect_to root_url
@@ -22,7 +23,7 @@ class GamesController < ApplicationController
   end
 
   def show
-
+    
   end
 
   def generate_ships(user_id, game_id)
