@@ -245,3 +245,15 @@
     <div class ="column" id="J">J9</div>
   </div>
 </div>
+
+
+<%= form_for @shot, url: games_shot_path, html: {class: "nifty_form"} do |f| %>
+  X Coordinate: <%= f.text_field :x_cord %>
+  Y Coordinate: <%= f.text_field :y_cord %>
+  <%= f.submit "Fire!" %>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>

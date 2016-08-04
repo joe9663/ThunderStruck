@@ -11,4 +11,12 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def current_game
+    @current_game ||= Game.find_by_id(session[:game_id])
+  end
+
+  def position(x_cord, y_cord)
+    x_cord + y_cord
+  end
+
 end
