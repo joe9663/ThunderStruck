@@ -19,4 +19,15 @@ class ApplicationController < ActionController::Base
     x_cord + y_cord
   end
 
+  def winner?
+    player1 = current_game.player_1
+    player2 = current_game.player_2
+    if player1.ships.all?{|ship| ship.sunk?}
+      return "Player 2 Wins!"
+    elsif player2.ships.all?{|ship| ship.sunk?}
+      return "Player 1 Wins!"
+    else
+      return "The Battle Continues"
+  end
+
 end

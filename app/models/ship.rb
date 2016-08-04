@@ -5,7 +5,9 @@ class Ship < ApplicationRecord
 
   def sunk?
     if self.hp == 0
-      return true
+      true
+    else
+      false
     end
   end
 
