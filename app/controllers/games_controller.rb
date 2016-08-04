@@ -10,8 +10,8 @@ class GamesController < ApplicationController
     position = position(params[:shot][:x_cord],params[:shot][:y_cord])
     shot = Shot.new(user_id: current_user.id, game_id: current_game.id, position: position)
     if shot.save
-      flash[:notice] = "SAVED RIGHT"
-      redirect_to root_path
+      @game = current_game
+      redirect_to @game
     end
   end
 
@@ -52,4 +52,13 @@ private
     Patrolboat.create(name: "Patrol Boat", hp: 2, user_id: user_id, game_id: game_id, position: "I9-J9")
   end
 
+
+  def turn
+    if Shot.all.count.even?
+      return "Player 1's Turn"
+    else
+      return "Player 2's Turn"
+    end
+  end
 end
+
