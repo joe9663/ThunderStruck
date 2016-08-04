@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resources :users, except: :destroy
 
   resources :sessions, only: [:create, :destroy, :new]
+
+  post '/games/:id/shots' => 'games#shots', as: 'games_shot'
+
 end
