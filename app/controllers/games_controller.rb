@@ -6,15 +6,25 @@ class GamesController < ApplicationController
   def new
   end
 
+  def shots
+    position = position(params[:shot][:x_cord],params[:shot][:y_cord])
+    shot = Shot.new(user_id: current_user.id, game_id: current_game.id, position: position)
+    if shot.save
+      flash[:notice] = "SAVED RIGHT"
+      redirect_to root_path
+    end
+  end
+
   def edit
   end
 
   def create
     user = current_user
-    game = Game.new(player_1_id: current_user.id)
-    if game.save
-      generate_ships(user.id, game.id)
-      render :show
+    @game = Game.new(player_1_id: current_user.id)
+    if @game.save
+      generate_ships(user.id, @game.id)
+      session[:game_id] = @game.id
+      redirect_to @game
     else
       flash[:notice] = "Could Not Create Game, For Some Weird Ass Reason"
       redirect_to root_url
@@ -22,7 +32,7 @@ class GamesController < ApplicationController
   end
 
   def show
-
+    @shot = Shot.new
   end
 
   def generate_ships(user_id, game_id)
