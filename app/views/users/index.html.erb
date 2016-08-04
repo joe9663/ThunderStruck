@@ -1,10 +1,11 @@
-<h1>WELCOME TO THE BATTLE SHIP!</h1>
+<div class="text-container">
+<h1>PREPARE TO BE THUNDERSTRUCK!</h1>
 
  <% if flash[:notice] %>
     <p class="flash-notice"><%= flash[:notice] %></p>
   <% end %>
 
-<% if logged_in? -%>Welcome, <%= current_user.name %><br>
+<% if logged_in? -%><h2>Welcome, <%= current_user.name %></h2><br>
   <%= form_for :game, url: '/games' do |f| %>
     <%=f.submit "Create New Game"%>
   <%end%>
@@ -13,9 +14,10 @@
 
 <%= link_to "Login!", new_session_path%>
 <br>
-or
+<p>or</p>
 <br>
 <%= link_to "Register!", new_user_path%>
 <br>
 <% end %>
+</div>
 

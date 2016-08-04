@@ -1,10 +1,18 @@
+<div class="text-container">
 <h2>LOGIN:</h2>
 
 <%= form_for :user, url: '/sessions' do |f| %>
 
-  <div>Name: <%= f.text_field :name %></div>
-  <div>Password: <%= f.password_field :password %></div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
   <%= f.submit "Submit" %>
 
 <% end %>
+</div>
