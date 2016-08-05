@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
       return "Player 1 Wins!"
     else
       return "The Battle Continues"
+    end
   end
 
 end
