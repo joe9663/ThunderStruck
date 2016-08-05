@@ -8,8 +8,8 @@ class Shot < ApplicationRecord
   def y_cord
   end
 
-  def hit?
-    targets = current_game.ships.where.not(user_id: current_user.id)
+  def hit?(game, user)
+    targets = game.ships.where.not(user_id: user.id)
     hit_ship = targets.select {|ship| ship.position.include?(self.position)}
     if hit_ship.length == 1
       return true
@@ -18,11 +18,12 @@ class Shot < ApplicationRecord
     end
   end
 
-    def hurts_the_ships
-    targets = current_game.ships.where.not(user_id: current_user.id)
+    def hurts_the_ships(game, user)
+    targets = game.ships.where.not(user_id: user.id)
     hit_ship = targets.select {|ship| ship.position.include?(self.position)}
     if hit_ship.length == 1
       hit_ship[0].hp -= 1
+      hit_ship[0].save
     end
   end
 

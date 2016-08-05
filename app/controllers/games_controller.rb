@@ -6,10 +6,17 @@ class GamesController < ApplicationController
   def new
   end
 
+  def winner
+    @victor = winner?
+  end
+
   def shots
     position = position(params[:shot][:x_cord],params[:shot][:y_cord])
     shot = Shot.new(user_id: current_user.id, game_id: current_game.id, position: position)
     if shot.save
+      if shot.hit?(current_game, current_user)
+        shot.hurts_the_ships(current_game, current_user)
+       end
       @game = current_game
       redirect_to @game
     end
@@ -36,11 +43,6 @@ class GamesController < ApplicationController
     player_2_join
     @turn = turn
     @shot = Shot.new
-    # if Shot.last.hit?
-    #   @shot_status = "THUNDERSTRUCK!!!!"
-    # else
-    #   @shot_status = "YOU MISSED!!!!"
-    # end
 
     @player_1_shots = calculate_player_1_shots
     unless current_game.player_2.nil?
@@ -55,6 +57,13 @@ class GamesController < ApplicationController
     else
       @player = 2
     end
+
+    if current_game.player_2
+      if winner?
+        redirect_to @winner
+      end
+    end
+
   end
 
 private
@@ -94,6 +103,7 @@ private
       current_game.player_2 = current_user
       current_game.save
       session[:player] = 2
+      generate_ships(current_user.id, current_game.id)
     end
   end
 

@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     elsif player2.ships.all?{|ship| ship.sunk?}
       return "Player 1 Wins!"
     else
-      return "The Battle Continues"
+      false
     end
   end
 end

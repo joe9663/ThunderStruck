@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   post '/games/:id/shots' => 'games#shots', as: 'games_shot'
 
+  get '/games/:id/winner' => 'games#winner', as: 'games_winner'
+
 end
