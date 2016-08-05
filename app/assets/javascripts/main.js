@@ -28,4 +28,15 @@
     var turn = $("#turn").html()[7];
     if (turn == player) { $(".shot-form").show()}
     else { $(".shot-form").hide()};
-  });
+
+
+setInterval(function(){
+    $.ajax({ url: $("#game-id").attr('value') + "/whosturn",  success: function(data){
+    }, dataType: "json"}).done(function(response) {
+       if (player == response.toString()) {window.location.reload()};
+    });
+    }, 7000);
+
+
+
+}); // closes document ready
