@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
 
+before_action :find_game_id, only: [:show]
+
   def index
   end
 
@@ -80,6 +82,9 @@ private
     Patrolboat.create(name: "Patrol Boat", hp: 2, user_id: user_id, game_id: game_id, position: "I9-J9")
   end
 
+  def find_game_id
+    @game = Game.find(params[:id])
+  end
 
   def turn
     if current_game.shots.all.count.even?

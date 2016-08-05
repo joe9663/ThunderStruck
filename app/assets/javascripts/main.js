@@ -31,11 +31,11 @@
 
 
 setInterval(function(){
-    $.ajax({ url: "4/whosturn" , success: function(data){
+    $.ajax({ url: $("#game-id").attr('value') + "/whosturn",  success: function(data){
     }, dataType: "json"}).done(function(response) {
        if (player == response.toString()) {window.location.reload()};
     });
-    }, 5000);
+    }, 7000);
 
 
 
