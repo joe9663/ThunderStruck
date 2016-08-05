@@ -17,7 +17,15 @@
 <p>or</p>
 <br>
 <%= link_to "Register!", new_user_path%>
-<br>
+<br><br>
+<% end %>
+<% if @games.length == 0  %>
+	<p>DO YOU EVEN THUNDERSTRIKE BRUH?</p>
+	<% else %>
+<h2> CHOOSE YOUR FATE</h2>
+<% @games.each do |game| %>
+<button><a href= "games/<%=game.id%>">Game: <%=game.id%></a></button>
+<% end %>
 <% end %>
 </div>
 
