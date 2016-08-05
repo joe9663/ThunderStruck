@@ -63,7 +63,11 @@ class GamesController < ApplicationController
         redirect_to @winner
       end
     end
+  end
 
+
+  def whosturn
+     render :json =>  turn[7]
   end
 
 private

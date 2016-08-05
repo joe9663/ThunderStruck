@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   get '/games/:id/winner' => 'games#winner', as: 'games_winner'
 
+  get '/games/:id/whosturn' => 'games#whosturn', as: 'games_whosturn'
+
 end
