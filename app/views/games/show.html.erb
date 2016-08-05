@@ -248,6 +248,9 @@
   </div>
 </div>
 
+
+<audio id="thunder" src="/sounds/thunderstruck.mp3"></audio>
+
 <div class="text-container shot-form">
 <%= form_for @shot, url: games_shot_path, html: {class: "nifty_form"} do |f| %>
   X Coordinate: <%= f.select :x_cord, ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J'] %>

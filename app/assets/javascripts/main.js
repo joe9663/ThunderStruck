@@ -1,4 +1,16 @@
+
+
   $(document).ready(function() {
+
+
+  function play(){
+    var audio = document.getElementById("thunder");
+    audio.play()
+    };  
+
+  if ( $("#player_1_shots").html().length > 0)
+  { window.onload = function() { play() } };
+
 
     var player = $("#player").html();
     if (player == 1){
