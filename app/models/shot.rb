@@ -9,13 +9,21 @@ class Shot < ApplicationRecord
   end
 
   def hit?
-    targets = @current_game.ships.where.not(user_id: current_user.id)
+    targets = current_game.ships.where.not(user_id: current_user.id)
     hit_ship = targets.select {|ship| ship.position.include?(self.position)}
     if hit_ship.length == 1
-      hit_ship[0].hp -= 1
       return true
     else
       return false
     end
   end
+
+    def hurts_the_ships
+    targets = current_game.ships.where.not(user_id: current_user.id)
+    hit_ship = targets.select {|ship| ship.position.include?(self.position)}
+    if hit_ship.length == 1
+      hit_ship[0].hp -= 1
+    end
+  end
+
 end

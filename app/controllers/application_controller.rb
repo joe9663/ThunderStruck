@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_game
-    @current_game ||= Game.find_by_id(session[:game_id])
+    @current_game ||= Game.find_by_id(params[:id])
   end
 
   def position(x_cord, y_cord)
@@ -30,5 +30,4 @@ class ApplicationController < ActionController::Base
       return "The Battle Continues"
     end
   end
-
 end
