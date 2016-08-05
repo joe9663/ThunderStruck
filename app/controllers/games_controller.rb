@@ -49,7 +49,6 @@ before_action :find_game_id, only: [:show]
     @player_1_shots = calculate_player_1_shots
     unless current_game.player_2.nil?
       @player_2_shots = calculate_player_2_shots
-
     else
       @player_2_shots = 0
     end
