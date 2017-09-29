@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 
-# I editted this
+# I edited this
